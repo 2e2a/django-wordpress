@@ -4,7 +4,7 @@ django-wordpress
 
 Models and views for reading a WordPress database. Compatible with WordPress version 3.5+.
 
-Forked from `ISL <https://github.com/jcarbaugh/django-wordpress/>`_ to add Django 2 support.
+Forked from `https://github.com/jcarbaugh/django-wordpress/ <https://github.com/jcarbaugh/django-wordpress/>`_ to add Django 2 support.
 
 
 --------
