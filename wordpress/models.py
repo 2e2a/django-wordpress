@@ -175,7 +175,6 @@ class Link(WordPressModel):
     name = models.CharField(max_length=255, db_column='link_name')
     image = models.CharField(max_length=255, db_column='link_image')
     target = models.CharField(max_length=25, db_column='link_target')
-#    category_id = models.IntegerField(default=0, db_column='link_category')
     description = models.CharField(max_length=255, db_column='link_description')
     visible = models.CharField(max_length=20, db_column='link_visible')
     owner = models.ForeignKey(User, related_name='links', db_column='link_owner', on_delete=models.CASCADE)
@@ -298,11 +297,9 @@ class Post(WordPressModel):
 
     # statuses
     password = models.CharField(max_length=20, db_column="post_password")
-#    category_id = models.IntegerField(db_column='post_category')
 
     # other various lame fields
     parent_id = models.IntegerField(default=0, db_column="post_parent")
-    # parent = models.ForeignKey('self', related_name="children", db_column="post_parent", blank=True, null=True)
     menu_order = models.IntegerField(default=0)
     mime_type = models.CharField(max_length=100, db_column='post_mime_type')
 
@@ -429,7 +426,6 @@ class Comment(WordPressModel):
     id = models.IntegerField(db_column='comment_id', primary_key=True)
     post = models.ForeignKey(Post, related_name="comments", db_column="comment_post_id", on_delete=models.CASCADE)
     user_id = models.IntegerField(db_column='user_id', default=0)
-    #user = models.ForeignKey(User, related_name="comments", blank=True, null=True, default=0 )
     parent_id = models.IntegerField(default=0, db_column='comment_parent')
 
     # author fields
@@ -498,7 +494,6 @@ class Taxonomy(WordPressModel):
 
     id = models.IntegerField(db_column='term_taxonomy_id', primary_key=True)
     term = models.ForeignKey(Term, related_name='taxonomies', blank=True, null=True, on_delete=models.SET_NULL)
-    #term_id = models.IntegerField()
     name = models.CharField(max_length=32, db_column='taxonomy')
     description = models.TextField()
     parent_id = models.IntegerField(default=0, db_column='parent')
@@ -518,6 +513,3 @@ class Taxonomy(WordPressModel):
 
     def parent(self):
         return self._get_object(Taxonomy, self.parent_id)
-
-    #def term(self):
-    #    return self._get_object(Term, self.term_id)
