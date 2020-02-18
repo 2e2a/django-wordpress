@@ -1,7 +1,6 @@
 from django.contrib import admin
 from wordpress.models import (
-    Option, Comment, Link, Post,
-    PostMeta, Taxonomy, Term, User, UserMeta
+    PostMeta, UserMeta
 )
 
 
@@ -51,12 +50,3 @@ class TaxonomyAdmin(admin.ModelAdmin):
 class TermAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     search_fields = ('name',)
-
-
-admin.site.register(Option, OptionAdmin)
-admin.site.register(Comment, CommentAdmin)
-admin.site.register(Link, LinkAdmin)
-admin.site.register(Post, PostAdmin)
-admin.site.register(Taxonomy, TaxonomyAdmin)
-admin.site.register(Term, TermAdmin)
-admin.site.register(User, UserAdmin)
