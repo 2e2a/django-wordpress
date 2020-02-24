@@ -69,7 +69,7 @@ Installation
 
 ::
 
-    pip install the-real-django-wordpress
+    pip install the-real-django-wordpress-py3
 
 Add to INSTALLED_APPS in settings.py::
 
